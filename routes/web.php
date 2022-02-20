@@ -23,6 +23,13 @@ Route::get('add-doctor-view', [AdminController::class, 'add_doctor_view']);
 Route::post('insert-doctor', [AdminController::class, 'insert_doctor']);
 
 
+//user
+Route::post('appointment', [HomeController::class, 'appointment']);
+Route::get('myappointment', [HomeController::class, 'myappointment']);
+Route::get('cancel-appoint/{id}', [HomeController::class, 'cancel_appoint']);
+
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
