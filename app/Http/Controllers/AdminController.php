@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Models\Appointment;
 
 class AdminController extends Controller
 {
@@ -28,4 +29,6 @@ class AdminController extends Controller
         $doctor->save();
         return redirect()->back()->with('message', 'Thêm bác sĩ thành công!!!');
     }
+
+    
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,20 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'redirect']);
 
 //admin
-Route::get('add-doctor-view', [AdminController::class, 'add_doctor_view']);
-Route::post('insert-doctor', [AdminController::class, 'insert_doctor']);
+Route::get('/add-doctor-view', [AdminController::class, 'add_doctor_view']);
+Route::post('/insert-doctor', [AdminController::class, 'insert_doctor']);
+
+
+//doctor
+Route::get('/show-appointment', [DoctorController::class, 'show_appointment']);
+Route::get('/approved/{id}', [DoctorController::class, 'approved']);
+Route::get('/canceled/{id}', [DoctorController::class, 'canceled']);
 
 
 //user
-Route::post('appointment', [HomeController::class, 'appointment']);
-Route::get('myappointment', [HomeController::class, 'myappointment']);
-Route::get('cancel-appoint/{id}', [HomeController::class, 'cancel_appoint']);
+Route::post('/appointment', [HomeController::class, 'appointment']);
+Route::get('/myappointment', [HomeController::class, 'myappointment']);
+Route::get('/cancel-appoint/{id}', [HomeController::class, 'cancel_appoint']);
 
 
 
